@@ -31,10 +31,6 @@ public class PhanTu<T extends Comparable<T>> {
             while (s != null) {
                 sortArr.add(s);
                 s = br.readLine();
-                if (s == null) {
-                    break;
-                }
-
             }
 
             Collections.sort(sortArr);
@@ -42,8 +38,8 @@ public class PhanTu<T extends Comparable<T>> {
                 bw.write(cur);
                 bw.newLine();
             }
-            
-            fr.close();
+
+            br.close();
             bw.flush();
             bw.close();
         } catch (FileNotFoundException ex) {
