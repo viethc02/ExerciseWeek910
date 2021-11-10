@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PhanTu<T extends Comparable<T>> {
-    private T value;
+    public T value;
 
     public boolean isGreaterThan(T a) {
         if (value.compareTo(a) > 0) {
