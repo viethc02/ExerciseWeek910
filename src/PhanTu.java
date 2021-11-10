@@ -1,4 +1,7 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class PhanTu<T extends Comparable<T>> {
@@ -22,13 +25,25 @@ public class PhanTu<T extends Comparable<T>> {
             File f2 = new File(fileOutput);
             FileWriter fw = new FileWriter(f2);
             BufferedWriter bw = new BufferedWriter(fw);
+
+            List<String> sortArr = new ArrayList<String>();
+
             while (s != null) {
-                bw.write(s);
-                bw.newLine();
-                //System.out.println(s);
+                sortArr.add(s);
                 s = br.readLine();
+                if (s == null) {
+                    break;
+                }
 
             }
+
+            Collections.sort(sortArr);
+            for (String cur : sortArr) {
+                bw.write(cur);
+                bw.newLine();
+            }
+            
+            fr.close();
             bw.flush();
             bw.close();
         } catch (FileNotFoundException ex) {
@@ -48,8 +63,11 @@ public class PhanTu<T extends Comparable<T>> {
         System.out.print("Output: ");
 
         String name1 = input.nextLine();
-        input.close();
 
+        input.close();
+        PhanTu<String> test = new PhanTu<>();
+        test.value = "aba";
+        System.out.println(test.isGreaterThan("a"));
         readAndWriteToFile(name, name1);
 
     }
